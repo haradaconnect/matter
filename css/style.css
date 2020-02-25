@@ -1,0 +1,477 @@
+@charset "UTF-8";
+/**********************************************
+  PC view
+**********************************************/
+/*====================================
+  Common
+====================================*/
+/*== Font ===*/
+body,
+a {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, serif;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.075em;
+  color: #333;
+}
+/*== Util ===*/
+/* Flex box */
+.flexBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/* Container */
+.container {
+  min-width: 700px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+/* br */
+br.onlySP { display: none; }
+br.onlyPC { display: inline; }
+/*====================================
+  Loading
+====================================*/
+.loadingPanel {
+  width: 200vw;
+  height: 50vh;
+  background-color: #fff;
+  position: fixed;
+  z-index: 1000;
+  transition: 0.3s linear;
+}
+.loadingPanel.positive { 
+  top: 0;
+  left: -100vw;
+  transform-origin: right bottom;
+}
+.loadingPanel.negative {
+  top: 50vh;
+  left: 0;
+  transform-origin: left top;
+}
+.loadingPanel.trans1 {
+  box-shadow: 0 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.5s cubic-bezier(0.22, 0.84, 0.84, 1.36);
+}
+.loadingPanel.positive.trans1 { transform: translateY(-10px); }
+.loadingPanel.negative.trans1 { transform: translateY(10px); }
+.loadingPanel.loaded { 
+  transition: 1s ease-in-out;
+}
+.loadingPanel.positive.loaded { 
+  transform: translateY(-50vh) rotate(90deg);
+}
+.loadingPanel.negative.loaded { 
+  transform: translateY(50vh) rotate(90deg);
+}
+.loadingPanel .board {
+  width: 50%;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+}
+.loadingPanel.positive .board {
+  bottom: 0;
+  right: 0;
+  padding-bottom: 5px;
+}
+.loadingPanel.negative .board {
+  top: 0;
+  left: 0;
+  padding-top: 5px;
+}
+.loadingPanel .board p::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: right center;
+}
+.loadingPanel.positive .board p::after {
+  transition: 0.8s 0s ease-in-out;
+}
+.loadingPanel.negative .board p::after {
+  transition: 0.8s 0.6s ease-in-out;
+}
+.loadingPanel.positive .board.open p::after,
+.loadingPanel.negative .board.open p::after {
+  transform: scaleX(0);
+}
+/*====================================
+  Header/Footer
+====================================*/
+header, header a,
+footer, footer a {
+  color: #fff;
+}
+header {
+  height: 100px;
+  text-align: center;
+  background-color: rgb(109, 109, 109);
+  position: relative;
+}
+/*=== Header fixed ===*/
+body {
+  padding-top: 100px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 0;
+  }
+  header {
+    position: relative;
+  }
+}
+/*=== /Header fixed ===*/
+header .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+header h1 {
+  text-align: left;
+  margin-right: auto;
+}
+footer {
+  height: 50px;
+  text-align: center;
+  background-color: rgb(109, 109, 109);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/*====================================
+  Nav.
+====================================*/
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+nav .navItem {
+  padding: 0 15px;
+}
+nav .navItem {
+  padding: 0 15px;
+}
+nav .navMain::after,
+nav .navSubField .navSubItem::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.1s ease-in-out;
+}
+nav .navSubField .navSubItem::after {
+  background-color: #333;
+  bottom: -2px;
+}
+nav .navMain:hover::after,
+nav .navSubField .navSubItem:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+nav .navItem.hasSub {
+  padding-right: 30px;
+}
+nav .navItem.hasSub::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  margin: auto;
+  transform: rotate(-45deg) translateY(-2px);
+  transition: 0.3s ease-in-out;
+}
+nav .navItem.hasSub:hover::after {
+  transform: rotate(135deg) translateY(-2px); 
+}
+                   .navSubField { display: none;  }
+nav .navItem:hover .navSubField { display: block; }
+.navSubField {
+  background-color: #fff;
+  border: 1px solid #333;
+  position: absolute;
+  top: 102%;
+  right: 0;
+  padding: 20px 20px 20px;
+}
+.navSubField .navSubItem:not(:first-of-type) {
+  margin-top: 10px;
+}
+.navSubField .navSubItem a {
+  color: #333;
+}
+/*=== Hamberger ===*/
+/* Nav. button */
+.navBtn {
+  display: none;
+}
+.navBtn {
+  width: 50px;
+  height: 50px;
+  background-color: #6d6d6d;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: 0.3s ease-in-out;
+  z-index: 20;
+  margin: auto;
+}
+header.bottom .navBtn {
+  bottom: 60px;
+}
+.open .navBtn {
+  opacity: 0.6;
+}
+.navBtn span {
+  width: 60%;
+  height: 2px;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.3s ease-in-out;
+  margin: auto;
+}
+.navBtn span:nth-of-type(1) {
+  transform: translateY(-8px);
+}
+.navBtn span:nth-of-type(3) {
+  transform: translateY(8px);
+}
+.open .navBtn span:nth-of-type(1) {
+  transform: translateY(0) rotate(45deg);
+}
+.open .navBtn span:nth-of-type(2) {
+  transform: scaleX(0);
+}
+.open .navBtn span:nth-of-type(3) {
+  transform: translateY(0) rotate(-45deg);
+}
+/*====================================
+  Main
+====================================*/
+main {
+  min-height: 500px;
+  cursor: url(../images/hand.png), auto;
+}
+main:active {
+  cursor: url(../images/handHit.png), auto;
+}
+/*=== Headline ===*/
+h2 {
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+}
+h2::after {
+  content: '';
+  width: 50px;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+h3 {
+  text-align: left;
+  padding-left: 23px;
+}
+h3::before {
+  content: '';
+  width: 15px;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  margin: auto;
+}
+/*=== Array item ===*/
+.arrayField .arrayItem {
+  padding-top: 20px;
+}
+.arrayField .arrayItem:not(:first-of-type) {
+  margin-top: 40px;
+}
+/* Container */
+main .container {
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
+  padding: 40px 40px 50px;
+}
+/*====================================
+  Matter
+====================================*/
+main .container {
+  z-index: 1;
+}
+.bgPanel {
+  width: 100%;
+  height: calc(100vh - 100px - 50px);
+}
+.bgPanel::before {
+  content: 'Click to bounce us!';
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  opacity: 0.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.bgPanel:hover::before {
+  opacity: 1;
+}
+/**********************************************
+  TAB/SP view
+**********************************************/
+@media screen and (max-width:768px) {
+/*====================================
+  Common
+====================================*/
+  body {
+    min-width: 320px;
+  }
+/*== Util ===*/
+/* Container */
+  .container {
+    min-width: auto;
+  }
+/* br */
+  br.onlySP { display: inline; }
+  br.onlyPC { display: none; }
+/*====================================
+  Header/Footer
+====================================*/
+  header {
+    min-height: 70px;
+    height: 70px;
+  }
+  header h1 {
+    margin-left: auto;
+  }
+  footer {
+    height: 40px;
+  }
+/*====================================
+  Nav.
+====================================*/
+/* Nav. button */
+  .navBtn {
+    display: block;
+  }
+  .open .navBtn {
+    transform: rotate(270deg);
+  }
+  .open nav {
+    transform: translateX(-100%);
+  }
+  nav {
+    width: 50%;
+    max-height: 100vh;
+    background-color: #fff;
+    box-shadow: 3px 3px 4px 8px rgba(0, 0, 0, 0.2);
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 100%;
+    transition: 0.3s ease-in-out;
+    overflow-y: auto;
+    padding: 10px 0 80px;
+  }
+  header.bottom nav {
+    bottom: 42px;
+  }
+  nav a {
+    color: #333;
+  }
+  nav .navItem {
+    width: 90%;
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+  nav .navItem:not(:first-of-type) {
+    border-top: 1px solid #333;
+  }
+/*====================================
+  Main
+====================================*/
+/* Container */
+  main .container {
+    width: 90%;
+    min-width: auto;
+    padding: 30px 20px 40px;
+  }
+  section {
+    padding: 20px 0;
+  }
+  section:first-of-type {
+    margin-top: 50px;
+  }
+  section:last-of-type {
+    margin-bottom: 100px;
+  }
+  main {
+    min-height: auto;
+  }
+  .bgPanel {
+    height: calc(100vh - 70px - 40px);
+  }
+  .bgPanel::before {
+    font-size: 30px;
+    opacity: 1;
+  }
+}
+/**********************************************
+  Safari view
+**********************************************/
+_::-webkit-full-page-media, _:future, :root .selector {
+  bottom: env(safe-area-inset-bottom);
+}

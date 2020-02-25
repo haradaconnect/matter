@@ -1,0 +1,598 @@
+@charset "UTF-8";
+/*===========================
+  Font
+===========================*/
+body,
+a,
+input,
+button,
+select,
+textarea,
+label {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.075em;
+  color: #333;
+}
+/*===========================
+  Padding/Margin 0
+===========================*/
+body, header, footer, main, div, p, h1, h2, h3, h4, h5, ol, ul, li, table, th, tr, td, figure, nav {
+  padding: 0;
+  margin: 0;
+}
+/*===========================
+  All
+===========================*/
+*, *::before, *::after {
+  box-sizing: border-box;
+  position: relative;
+}
+/*===========================
+  Entire
+===========================*/
+html {
+  width: 100%;
+  min-width: 320px;
+}
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/*===========================
+  Header/Footer
+===========================*/
+header {
+  width: 100%;
+  min-height: 100px;
+  color: #fff;
+  text-align: center;
+  background-color: rgb(109, 109, 109);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 10px 0;
+}
+footer {
+  width: 100%;
+  min-height: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: rgb(109, 109, 109);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin-top: auto;
+}
+@media all and (-ms-high-contrast: none){
+  header {
+    justify-content: flex-start;
+  }
+  footer {
+    justify-content: flex-start;
+  }
+}
+/*===========================
+  Main
+===========================*/
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+section {
+  text-align: center;
+	padding: 30px 0;
+}
+section:first-of-type {
+  margin-top: 100px;
+}
+section:last-of-type {
+  margin-bottom: 200px;
+}
+/*===========================
+  h1~5
+===========================*/
+h1, h1 a {
+  font-size: 2rem;
+}
+h2, h3, h4, h5 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+/*===========================
+  Paragraph
+===========================*/
+p {
+  text-align: left;
+}
+/*===========================
+  Source code
+===========================*/
+pre, code {
+  text-align: left;
+}
+code ol.linenums {
+  list-style: inside;
+}
+code ol.linenums li {
+  list-style-type: decimal-leading-zero;
+}
+pre {
+  border-top: 2px solid rgb(238, 238, 238);
+  border-top-style: inset;
+  border-right: 2px solid rgb(238, 238, 238);
+  border-bottom: 2px solid rgb(238, 238, 238);
+  border-left: 2px solid rgb(238, 238, 238);
+  border-left-style: inset;
+  padding: 5px;
+}
+pre:not(:first-child) {
+  margin-top: 30px;
+}
+/*
+<pre><code class="prettyprint linenums">
+<script type="text/plain">
+  <div></div>
+</script>
+</code></pre>
+*/
+/*===========================
+  Table
+===========================*/
+table {
+  border-collapse: collapse;
+}
+/*===========================
+  Image
+===========================*/
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+header img,
+main img,
+footer img {
+  width: 100%;
+  height: auto;
+}
+/*===========================
+  Video
+===========================*/
+.videoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+header video,
+main video,
+footer video {
+  width: 100%;
+  height: auto;
+}
+/*
+// 自動再生（操作なし）
+<div class="videoWrapper">
+  <video src="" autoplay muted loop></video>
+</div>
+// 操作あり
+<div class="videoWrapper">
+  <video src="" autoplay loop controls></video>
+</div>
+*/
+/*===========================
+  iframe
+===========================*/
+iframe {
+  max-width: 100%;
+}
+/*===========================
+  Anchor
+===========================*/
+a {
+  text-decoration: none;
+}
+.linkBtn {
+  color: #fff;
+	background-color: rgb(27, 68, 248);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  padding: 2px 10px;
+  display: inline-block;
+}
+.aWrapper {
+  line-height: 0;
+}
+.aWrapper:not(:first-child) {
+  margin-top: 20px;
+}
+/*
+<div class="aWrapper">
+  <a href="" class="linkBtn">リンク</a>
+</div>
+*/
+/*===========================
+  Form
+===========================*/
+/* Form */
+form {
+  width: 100%;
+  margin: 0 auto;
+}
+*:focus {
+  outline: none;
+}
+/* UI wrapper */
+.uiWrapper:not(:first-child) {
+  margin-top: 30px;
+}
+.uiWrapper.checkbox,
+.uiWrapper.radio,
+.uiWrapper.select,
+.uiWrapper.date {
+  text-align: left;
+}
+.uiWrapper > span {
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+}
+/*===========================
+  Input/Label
+===========================*/
+input {
+  width: 100%;
+  font-size: 1em;  
+  text-align: left;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  padding: 0 5px;
+}
+label {
+  width: 100%;
+  text-align: left;
+}
+/* Check box */
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + .cbLabel::before,
+input[type="checkbox"] + .cbLabel::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #eee;
+  border-radius: 20%;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+  /* border: 1px solid #aaa; */
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: auto;
+}
+input[type="checkbox"]:checked + .cbLabel::after {
+  width: 10px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  border-right: 3px solid rgb(27, 68, 248);
+  border-bottom: 3px solid rgb(27, 68, 248);
+  box-shadow: none;
+  bottom: 10px;
+  left: 4px;
+  transform: rotate(45deg);
+}
+.cbLabel {
+  width: auto;
+  text-align: left;
+  position: relative;
+	cursor: pointer;
+  display: inline-block;
+  padding-left: 20px;
+  margin: 0 auto;
+  margin-right: 10px;
+}
+/*
+<div class="uiWrapper checkbox">
+  <span></span>
+  <input type="checkbox" name="cb" value="qid" id="cb01">
+  <label for="cb01" class="cbLabel">選択01</label>
+  <input type="checkbox" name="cb" value="qid" id="cb02">
+  <label for="cb02" class="cbLabel">選択02</label>
+</div>
+*/
+/* Radio */
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + .radioLabel::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #eee;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: auto;
+}
+input[type="radio"]:checked + .radioLabel::before {
+  background-color: rgb(27, 68, 248);
+	border: 2px solid #eee;
+}
+.radioLabel {
+  width: auto;
+  text-align: left;
+	border: none;
+	border-radius: 5px;
+  display: inline-block;
+  position: relative;
+	cursor: pointer;
+  padding-left: 20px;
+  margin: 0 auto;
+  margin-right: 10px;
+}
+/*
+<div class="uiWrapper radio">
+  <span></span>
+  <input type="radio" name="radio" value="qid" id="radio00" checked>
+  <label for="radio00" class="radioLabel">選択01</label>
+  <input type="radio" name="radio" value="qid" id="radio01">
+  <label for="radio01" class="radioLabel">選択02</label>
+</div>
+*/
+/* File */
+input[type="file"] {
+	display: none;
+}
+.openLabel {
+  width: auto;
+	color: #fff;
+	background-color: rgb(27, 68, 248);
+	border: none;
+	border-radius: 10px;
+  display: inline-block;
+	cursor: pointer;
+  -webkit-appearance: none;
+  padding: 2px 10px;
+}
+.openLabel:hover {
+  opacity: 0.6;
+}
+/*
+<div class="uiWrapper">
+  <label for="file" class="openLabel">
+    <span>開く</span>
+    <input type="file" name="files[]" accept="" multiple="multiple" id="file">
+  </label>
+</div>
+*/
+/* Number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/*
+<div class="uiWrapper">
+  <input type="number" name="num" value="0" min="0" max="100">
+</div>
+*/
+/* Date */
+.dateWrapper {
+  width: auto;
+  border-top: 2px solid rgb(238, 238, 238);
+  border-top-style: inset;
+  border-right: 2px solid rgb(238, 238, 238);
+  border-bottom: 2px solid rgb(238, 238, 238);
+  border-left: 2px solid rgb(238, 238, 238);
+  border-left-style: inset;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+input[type="date"] {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 10px 0 5px;
+}
+input[type="date"]::-ms-inner-spin,
+input[type="date"]::-ms-clear {
+  visibility:hidden
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  box-sizing: border-box;
+  right: 0px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: transparent;
+}
+.dateLabel {
+  position: relative;
+  padding: 0;
+}
+.dateLabel::before,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+  margin: auto;
+}
+.dateLabel::before {
+  content: "";
+  background: url("../images/iconCalendar.png") no-repeat center;
+  background-size: contain;
+  right: 2px;
+}
+/*
+<div class="uiWrapper date">
+  <div class="dateWrapper">
+    <label for="pubDate" class="dateLabel">
+      <input type="date" id="date" name="date" value="" min="2019-01-01">
+    </label>
+  </div>
+</div>
+*/
+button {
+	color: #fff;
+	background-color: rgb(27, 68, 248);
+  border: none;
+  border-bottom: 2px solid rgb(19, 6, 136);
+  border-radius: 10px;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  padding: 2px 10px;
+}
+button:hover {
+  opacity: 0.6;
+}
+button:active {
+  border-bottom: 2px solid transparent;
+  top: 2px;
+}
+.btnWrapper:not(:first-child) {
+  margin-top: 20px;
+}
+/*
+<div class="btnWrapper">
+  <button>ボタン</button>
+</div>
+*/
+/* Select */
+.selectWrapper {
+  width: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+.selectWrapper::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 12px;
+  bottom: 0;
+  transform: rotate(45deg) translateY(-4px);
+  margin: auto;
+}
+select {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  -webkit-appearance: none;
+  display: block;
+  cursor: pointer;
+  padding: 2px 30px 2px 10px;
+}
+select::-ms-expand {
+  display: none;
+}
+/*
+<div class="uiWrapper select">
+  <div class="selectWrapper">
+    <select name="">
+      <option val="0">選択してください</option>
+    </select>
+  </div>
+</div>
+*/
+/* Text area */
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  padding: 0 5px;
+  resize: none;
+}
+/*
+<div class="uiWrapper">
+  <label for="">
+    <span></span>
+    <textarea name="" id="" rows="5"></textarea>
+  </label>
+</div>
+*/
+/*===========================
+  Flex box
+===========================*/
+.flexBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media all and (-ms-high-contrast: none){
+  .flexBox {
+    justify-content: flex-start;
+  }
+}
+/*===========================
+  Wrapper
+===========================*/
+.container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
